@@ -58,3 +58,9 @@ git rebase upstream/master
 ```
 
 ### Homework (homework4)
+
+# Lesson 5 5/01/2019
+### Documentation
+- https://docs.python.org/3.7/library/string.html - строки
+- https://en.wikipedia.org/wiki/Regular_expression - регулярные выражения
+- https://docs.python.org/3/library/re.html - как работать в python

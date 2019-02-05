@@ -23,8 +23,15 @@ one 1 <class 'int'>
 two 2 <class 'int'>
 
 print_given()
-
 '''
+from functools import wraps
+
+
+def print_given(*args, **kwargs):
+    for item in args:
+        print(item, type(item))
+    for key, value in kwargs.items():
+        print(key, value, type(value))
 
 
 
@@ -56,6 +63,16 @@ number_names = {
         13: 'thirteen', 14: 'fourteen', 15: 'fifteen', 16: 'sixteen',
         17: 'seventeen',  18: 'eighteen', 19: 'nineteen'}
 '''
+
+
+def sort_by_abc(_list):
+    number_names = {
+        0: 'zero', 1: 'one', 2: 'two', 3: 'three', 4: 'four', 5: 'five',
+        6: 'six', 7: 'seven', 8: 'eight', 9: 'nine',
+        10: 'ten', 11: 'eleven', 12: 'twelve',
+        13: 'thirteen', 14: 'fourteen', 15: 'fifteen', 16: 'sixteen',
+        17: 'seventeen', 18: 'eighteen', 19: 'nineteen'}
+    return sorted(_list, key=lambda x: number_names[x])
 
 '''
 Ex3
@@ -92,6 +109,13 @@ print(h(2, 3, 9))
 '''
 
 
+def composition(func_1, func_2):
+    # return lambda *args, **kwargs: func_1(func_2(*args, **kwargs))
+    def new_func(*args, **kwargs):
+        return func_1(func_2(*args, **kwargs))
+    return new_func
+
+
 '''
 Ex4
 Напишите декоратор flip, который делает так, что задекорированная функция
@@ -111,6 +135,13 @@ def div(x, y, show=False):
 div(2, 4, show=True)
 >>> 2.0
 '''
+
+
+def flip(func):
+    @wraps(func)
+    def new_func(*args, **kwargs):
+        return func(*args[::-1], **kwargs)
+    return new_func
 
 '''
 Ex5
@@ -134,3 +165,15 @@ identity(57)
 >>> identity
 57
 '''
+
+
+def introduce_on_debug(debug):
+    def _inner(func):
+        @wraps(func)
+        def new_func(*args, **kwargs):
+            if debug:
+                print(func.__name__)
+            return func(*args, **kwargs)
+        return new_func
+    return _inner
+
