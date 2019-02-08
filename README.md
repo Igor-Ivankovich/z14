@@ -64,3 +64,12 @@ git rebase upstream/master
 - https://docs.python.org/3.7/library/string.html - строки
 - https://en.wikipedia.org/wiki/Regular_expression - регулярные выражения
 - https://docs.python.org/3/library/re.html - как работать в python
+
+# Lesson 6 8/01/2019
+### Documentation
+- https://en.wikipedia.org/wiki/Serialization - сериализация
+- https://www.pythonforbeginners.com/cheatsheet/python-file-handling - работа с файлами
+- https://docs.python.org/3/library/pickle.html - pickle
+- https://docs.python.org/3/library/csv.html - csv
+- https://docs.python.org/2/library/xml.etree.elementtree.html - xml
+- https://docs.python.org/3/library/json.html - json
