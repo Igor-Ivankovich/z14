@@ -73,3 +73,8 @@ git rebase upstream/master
 - https://docs.python.org/3/library/csv.html - csv
 - https://docs.python.org/2/library/xml.etree.elementtree.html - xml
 - https://docs.python.org/3/library/json.html - json
+
+# Lesson 7 12/02/2019
+### Documentation
+- https://docs.python.org/3.7/tutorial/classes.html - дока по классам
+
