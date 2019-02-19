@@ -46,7 +46,7 @@ class User:
     @classmethod
     def generate_users(cls, count):
         for i in range(count):
-            yield cls(f"First_{i}", random.randint(cls.adult_age, 100))
+            yield cls(f"First_{i}", random.randint(User.adult_age, 100))
 
 
 u1 = User("User1", 12, "Last1")
