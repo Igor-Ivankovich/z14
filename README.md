@@ -78,3 +78,9 @@ git rebase upstream/master
 ### Documentation
 - https://docs.python.org/3.7/tutorial/classes.html - дока по классам
 
+# Lesson 8 19/02/2019
+### Documentation
+- https://docs.python.org/3/tutorial/errors.html - работа с исключениями
+- https://habr.com/ru/post/186608/ - магические методы
+- https://pillow.readthedocs.io/en/stable/handbook/tutorial.html - работа с картинками
+
