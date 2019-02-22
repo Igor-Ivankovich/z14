@@ -72,12 +72,26 @@ def get_anagrams_v2(_str, _list):
 
 
 # ## HARD ## #
+class Comparator:
+    def __init__(self, value):
+        self.value = value
+
+    def __lt__(self, other):
+        first_number = str(self.value) + str(other.value)
+        second_number = str(other.value) + str(self.value)
+        return second_number < first_number
+
 
 def max_number(_list):
     """(*) Написать функцию, которая из списка чисел составляет
     максимальное число
-    [234, 123, 98] -> 98234123
+    [98, 9, 34] -> 99834
     """
+    if not _list:
+        return
+    sorted(_list, key=Comparator)
+
+    return int(''.join(map(str, sorted(_list, key=Comparator))))
 
 
 if __name__ == '__main__':
