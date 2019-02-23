@@ -1,9 +1,32 @@
+import math
+import abc
+
+
 # 1.
+# ## HARD ## #
+from datetime import datetime
+
+
+class Comparator:
+    def __init__(self, value):
+        self.value = value
+
+    def __lt__(self, other):
+        first_number = str(self.value) + str(other.value)
+        second_number = str(other.value) + str(self.value)
+        return second_number < first_number
+
+
 def max_number(_list):
     """(*) Написать функцию, которая из списка чисел составляет
     максимальное число
-    [234, 123, 98] -> 98234123
+    [98, 9, 34] -> 99834
     """
+    if not _list:
+        return
+    sorted(_list, key=Comparator)
+
+    return int(''.join(map(str, sorted(_list, key=Comparator))))
     
     
 if __name__ == '__main__':
@@ -13,6 +36,90 @@ if __name__ == '__main__':
     assert max_number([98, 9, 34]) == 99834
     print('max_number - OK')
 
+
+class LoggerMixin:
+    def log(self):
+        print(datetime.now().isoformat(), str(self))
+
+
+class FigureException(Exception):
+    pass
+
+
+class Figure(metaclass=abc.ABCMeta):
+    args = ()
+
+    def __init__(self, name, **kwargs):
+        self.validate(**kwargs)
+        self.name = name
+        for key, value in kwargs.items():
+            setattr(self, key, value)
+
+    def validate(self, **kwargs):
+        for arg in self.args:
+            if kwargs[arg] <= 0:
+                raise FigureException(f"{kwargs[arg]} <= 0")
+
+    def perimeter(self):
+        return 'Not implemented'
+
+    # @abc.abstractmethod
+    def square(self):
+        pass
+
+    def __eq__(self, other):
+        return self.square() == other.square()
+    
+    def __str__(self):
+        return f'{self.__class__.__name__}: {self.name}'
+
+
+class Triangle(Figure):
+    args = ('a', 'b', 'c')
+
+    def validate(self, **kwargs):
+        super().validate(**kwargs)
+        if kwargs['a'] + kwargs['b'] <= kwargs['c'] \
+                or kwargs['a'] + kwargs['c'] <= kwargs['b'] \
+                or kwargs['c'] + kwargs['b'] <= kwargs['a']:
+            raise FigureException("Invalid args")
+
+    def perimeter(self):
+        return self.a + self.b + self.c
+
+    def square(self):
+        p = self.perimeter() / 2
+        return (p * (p - self.a) * (p - self.b) * (p - self.c)) ** 0.5
+
+
+class Circle(Figure):
+    args = ('r',)
+
+    def perimeter(self):
+        return 2 * self.r * math.pi
+
+    def square(self):
+        return math.pi * self.r ** 2
+
+
+class Rectangle(Figure, LoggerMixin):
+    args = ('a', 'b')
+
+    def perimeter(self):
+        return 2 * (self.a + self.b)
+
+    def square(self):
+        return self.a * self.b
+
+
+class Star(Figure):
+
+    def square(self):
+        return 42
+
+
+class Star6(Figure):
+    pass
 
 """
 2.

@@ -84,3 +84,9 @@ git rebase upstream/master
 - https://habr.com/ru/post/186608/ - магические методы
 - https://pillow.readthedocs.io/en/stable/handbook/tutorial.html - работа с картинками
 
+# Lesson 9 22/02/2019
+### Documentation
+- https://habr.com/ru/post/186608/ - магические методы
+- https://habr.com/ru/post/145835/ - метаклассы
+- https://habr.com/ru/post/122082/ - дескрипторы
+- https://pythonworld.ru/osnovy/with-as-menedzhery-konteksta.html - менеджеры контекста
