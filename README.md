@@ -93,6 +93,8 @@ git rebase upstream/master
 
 # Lesson 10 26/02/2019
 ### Documentation
+- https://en.wikipedia.org/wiki/Software_testing - про тестирование
 - https://docs.python.org/3/library/unittest.html - юнитесты
 - https://coverage.readthedocs.io/en/v4.5.x/cmd.html - покрытие
-homework - покрыть тестами функции из домашки homework6 (положить в tests.py)
+
+homework - покрыть unit-тестами функции из домашки homework6 (положить в tests.py)
