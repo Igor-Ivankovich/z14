@@ -46,25 +46,76 @@ class FigureException(Exception):
     pass
 
 
-class Figure(metaclass=abc.ABCMeta):
+class PositiveNumberDescriptor:
+    def __init__(self, name):
+        self.name = name
+
+    def _validate(self, value):
+        if value <= 0:
+            raise FigureException("Value <= 0")
+
+    def __set__(self, instance, value):
+        self._validate(value)
+        setattr(instance, self.name, value)
+        setattr(instance, 'calculated', False)
+
+    def __get__(self, instance, owner):
+        return getattr(instance, self.name, None)
+
+
+class CacheDescriptor:
+    def __init__(self, name):
+        self.name = name
+        self.func = None
+
+    def __get__(self, instance, owner):
+        if not getattr(instance, 'calculated') or \
+                not getattr(instance, self.name, None):
+            setattr(instance, self.name, self.func())
+            setattr(instance, 'calculated', True)
+            print('miss cache')
+        return getattr(instance, self.name)
+
+    def __set__(self, instance, value):
+        self.func = value
+
+
+class AttrsMeta(abc.ABCMeta):
+    def __new__(cls, object_or_name, bases, _dict):
+        _dict['calculated'] = False
+        for key in _dict.get('args', []):
+            _dict[key] = PositiveNumberDescriptor(f'_{key}')
+        return type.__new__(cls, object_or_name, bases, _dict)
+
+
+class TestClass:
+    a = PositiveNumberDescriptor("_a")
+
+
+class Figure(metaclass=AttrsMeta):
     args = ()
+
+    perimeter = CacheDescriptor('_perimeter_cache')
+    square = CacheDescriptor('_square_cache')
 
     def __init__(self, name, **kwargs):
         self.validate(**kwargs)
         self.name = name
         for key, value in kwargs.items():
             setattr(self, key, value)
+        self.perimeter = self._perimeter
+        self.square = self._square
 
     def validate(self, **kwargs):
         for arg in self.args:
             if kwargs[arg] <= 0:
                 raise FigureException(f"{kwargs[arg]} <= 0")
 
-    def perimeter(self):
+    def _perimeter(self):
         return 'Not implemented'
 
     # @abc.abstractmethod
-    def square(self):
+    def _square(self):
         pass
 
     def __eq__(self, other):
@@ -84,37 +135,37 @@ class Triangle(Figure):
                 or kwargs['c'] + kwargs['b'] <= kwargs['a']:
             raise FigureException("Invalid args")
 
-    def perimeter(self):
+    def _perimeter(self):
         return self.a + self.b + self.c
 
-    def square(self):
-        p = self.perimeter() / 2
+    def _square(self):
+        p = self.perimeter / 2
         return (p * (p - self.a) * (p - self.b) * (p - self.c)) ** 0.5
 
 
 class Circle(Figure):
     args = ('r',)
 
-    def perimeter(self):
+    def _perimeter(self):
         return 2 * self.r * math.pi
 
-    def square(self):
+    def _square(self):
         return math.pi * self.r ** 2
 
 
 class Rectangle(Figure, LoggerMixin):
     args = ('a', 'b')
 
-    def perimeter(self):
+    def _perimeter(self):
         return 2 * (self.a + self.b)
 
-    def square(self):
+    def _square(self):
         return self.a * self.b
 
 
 class Star(Figure):
 
-    def square(self):
+    def _square(self):
         return 42
 
 

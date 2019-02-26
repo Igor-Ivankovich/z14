@@ -1,3 +1,11 @@
+def max_number(a, b, c):
+    if a > b and a > c:
+        _max = a
+    elif b > a and b > c:
+        _max = b
+    else:
+        _max = c
+    return _max
 
 
 # 1. Создать функцию которая создает список
@@ -8,12 +16,6 @@ def custom_range(_min, _max, _step=1):
         result.append(_min)
         _min += _step
     return result
-
-
-assert custom_range(1, 4) == [1, 2, 3]
-assert custom_range(1, 4, 2) == [1, 3]
-assert custom_range(1, 1, 2) == []
-print('1 - OK')
 
 
 # 2. Написать функцию, которая вычисляет факториал заданого числа
@@ -27,12 +29,6 @@ def factorial(n):
 
 # def factorial(n):
 #     return n * factorial(n - 1) if n > 1 else 1
-
-
-assert factorial(1) == 1
-assert factorial(5) == 120
-assert factorial(20) == 2432902008176640000
-print('2 - OK')
 
 
 # 3. Написать функцию которая определяет
@@ -54,8 +50,19 @@ def count_of_max_numbers(_list):
     return count
 
 
-assert count_of_max_numbers([]) == 0
-assert count_of_max_numbers([1]) == 0
-assert count_of_max_numbers([5, 7, -10, -8]) == 2
-print('3 - OK')
+if __name__ == '__main__':
+    assert custom_range(1, 4) == [1, 2, 3]
+    assert custom_range(1, 4, 2) == [1, 3]
+    assert custom_range(1, 1, 2) == []
+    print('1 - OK')
+
+    assert factorial(1) == 1
+    assert factorial(5) == 120
+    assert factorial(20) == 2432902008176640000
+    print('2 - OK')
+
+    assert count_of_max_numbers([]) == 0
+    assert count_of_max_numbers([1]) == 0
+    assert count_of_max_numbers([5, 7, -10, -8]) == 2
+    print('3 - OK')
 

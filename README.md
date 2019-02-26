@@ -90,3 +90,9 @@ git rebase upstream/master
 - https://habr.com/ru/post/145835/ - метаклассы
 - https://habr.com/ru/post/122082/ - дескрипторы
 - https://pythonworld.ru/osnovy/with-as-menedzhery-konteksta.html - менеджеры контекста
+
+# Lesson 10 26/02/2019
+### Documentation
+- https://docs.python.org/3/library/unittest.html - юнитесты
+- https://coverage.readthedocs.io/en/v4.5.x/cmd.html - покрытие
+homework - покрыть тестами функции из домашки homework6 (положить в tests.py)
