@@ -141,8 +141,7 @@ def dump_console(file_name, data):
 def main(argv):
     argv = argv[1:3]
     if not argv:
-        print("Bad arguments")
-        return
+        raise Exception("Bad arguments")
     input_file, output_file = (argv[0], argv[1]) \
         if len(argv) > 1 else (argv[0], None)
 

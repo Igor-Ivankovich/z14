@@ -98,3 +98,8 @@ git rebase upstream/master
 - https://coverage.readthedocs.io/en/v4.5.x/cmd.html - покрытие
 
 homework - покрыть unit-тестами функции из домашки homework6 (положить в tests.py)
+
+# Lesson 11 26/02/2019
+### Documentation
+- https://docs.python.org/3/library/unittest.mock.html - моки
+- https://www.tutorialspoint.com/sql/sql-quick-guide.htm
