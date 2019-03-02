@@ -103,3 +103,8 @@ homework - покрыть unit-тестами функции из домашки
 ### Documentation
 - https://docs.python.org/3/library/unittest.mock.html - моки
 - https://www.tutorialspoint.com/sql/sql-quick-guide.htm
+
+### homework
+Потренироваться создавать табилцы в postgresql с разными полями.
+
+Типы полей - http://www.postgresqltutorial.com/postgresql-data-types/
