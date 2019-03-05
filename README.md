@@ -109,7 +109,7 @@ homework - покрыть unit-тестами функции из домашки
 
 Типы полей - http://www.postgresqltutorial.com/postgresql-data-types/
 
-# Lesson 11 5/03/2019
+# Lesson 12 5/03/2019
 ### Documentation
 - https://www.tutorialspoint.com/sql/sql-quick-guide.htm - гайд по sql
 - https://khashtamov.com/ru/postgresql-python-psycopg2/ - библиотека psycopg2
