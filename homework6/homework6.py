@@ -122,7 +122,7 @@ def parse_xml(file_name):
 
 
 def dump_xml(file_name, data):
-    file = open(file_name)
+    file = open(file_name, 'w')
     items = ''
     for item in data:
         item_str = ''
