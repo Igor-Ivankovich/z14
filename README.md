@@ -99,7 +99,7 @@ git rebase upstream/master
 
 homework - покрыть unit-тестами функции из домашки homework6 (положить в tests.py)
 
-# Lesson 11 26/02/2019
+# Lesson 11 1/03/2019
 ### Documentation
 - https://docs.python.org/3/library/unittest.mock.html - моки
 - https://www.tutorialspoint.com/sql/sql-quick-guide.htm
@@ -108,3 +108,26 @@ homework - покрыть unit-тестами функции из домашки
 Потренироваться создавать табилцы в postgresql с разными полями.
 
 Типы полей - http://www.postgresqltutorial.com/postgresql-data-types/
+
+# Lesson 11 5/03/2019
+### Documentation
+- https://www.tutorialspoint.com/sql/sql-quick-guide.htm - гайд по sql
+- https://khashtamov.com/ru/postgresql-python-psycopg2/ - библиотека psycopg2
+
+### homework
+```
+1.
+Представим что мы создаем приложение для прохождения каких-либо тестов.
+
+Описать схему базы данных для этого приложения (таблицы и связи)
+
+Какие будут таблицы - тесты, вопросы, вариантов ответа, пользователей, ответы пользователей. Придумать поля у каждой таблицы. 
+Пользователь может отвечать на вопрос один раз. 
+Правильный вариант ответа только один.
+
+2*
+Не представляем приложение, а пишем.
+Необходимо написать консольное приложения для тестирования пользователя.
+Данные хранить в бд из задачи 1.
+```
+
