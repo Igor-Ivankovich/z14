@@ -1,4 +1,5 @@
 import psycopg2
+import sys
 
 
 class TestException(Exception):
@@ -94,10 +95,13 @@ class Test(Database):
         return output
 
 
-def main():
+def main(argv):
     test = Test()
-    input_name_person = input('Name:= ')
-    input_name_test = input('Test:= ')
+    argv = argv[1:3]
+    print(len(argv))
+    if not argv:
+        raise Exception("Bad arguments")
+    input_name_person, input_name_test = (argv[0], argv[1])
     test_id = test.checking_data_in_database(input_name_test, input_name_person)
     test.query_enter_name_test(test_id, input_name_person)
     answer = test.start_test(test_id, input_name_person)
@@ -107,4 +111,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    main(sys.argv)
