@@ -131,3 +131,13 @@ homework - покрыть unit-тестами функции из домашки
 Данные хранить в бд из задачи 1.
 ```
 
+# Lesson 13 20/03/2019
+### Documentation
+- https://docs.sqlalchemy.org/en/latest/ - дока по алхимии
+- https://www.datacamp.com/courses/introduction-to-relational-databases-in-python?tap_a=5644-dce66f&tap_s=128604-f35052 - курс по алхимии
+- https://ru.wikipedia.org/wiki/HTTP - что такое http
+- https://ru.wikipedia.org/wiki/%D0%97%D0%B0%D0%B3%D0%BE%D0%BB%D0%BE%D0%B2%D0%BA%D0%B8_HTTP
+- https://ru.wikipedia.org/wiki/%D0%A1%D0%BF%D0%B8%D1%81%D0%BE%D0%BA_%D0%B7%D0%B0%D0%B3%D0%BE%D0%BB%D0%BE%D0%B2%D0%BA%D0%BE%D0%B2_HTTP - список заголовков
+
+### homework
+1. Переписать sql с homework12 на SqlAlchemy
