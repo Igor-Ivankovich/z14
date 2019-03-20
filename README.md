@@ -141,3 +141,4 @@ homework - покрыть unit-тестами функции из домашки
 
 ### homework
 1. Переписать sql с homework12 на SqlAlchemy
+2. Почитать про http (иметь представление)
